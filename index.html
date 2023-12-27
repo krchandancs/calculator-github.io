@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gold Ornaments Price - Caluculator</title>
+    <link rel="canonical" href="https://codepen.io/samnorton/pen/oNYajYM" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+
+      *,
+      body {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background-color: #152733;
+        overflow: hidden;
+      }
+
+      .form-holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+      }
+
+      .form-holder .form-content {
+        position: relative;
+        text-align: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 60px;
+      }
+
+      .form-content .form-items {
+        border: 3px solid #fff;
+        padding: 40px;
+        display: inline-block;
+        width: 100%;
+        min-width: 540px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        text-align: left;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+
+      .form-content h3 {
+        color: #fff;
+        text-align: left;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .form-content h3.form-title {
+        margin-bottom: 30px;
+      }
+
+      .form-content p {
+        color: #fff;
+        text-align: left;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 20px;
+        margin-bottom: 30px;
+      }
+
+      .form-content label,
+      .was-validated .form-check-input:invalid ~ .form-check-label,
+      .was-validated .form-check-input:valid ~ .form-check-label {
+        color: #fff;
+      }
+
+      .form-content input[type="text"],
+      .form-content input[type="number"],
+      .form-content input[type="password"],
+      .form-content input[type="email"],
+      .form-content select {
+        width: 100%;
+        padding: 9px 20px;
+        text-align: left;
+        border: 0;
+        outline: 0;
+        border-radius: 6px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8d8d8d;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        margin-top: 16px;
+      }
+
+      .btn-primary {
+        background-color: #6c757d;
+        outline: none;
+        border: 0px;
+        box-shadow: none;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus,
+      .btn-primary:active {
+        background-color: #495056;
+        outline: none !important;
+        border: none !important;
+        box-shadow: none;
+      }
+
+      .form-content textarea {
+        position: static !important;
+        width: 100%;
+        padding: 8px 20px;
+        border-radius: 6px;
+        text-align: left;
+        background-color: #fff;
+        border: 0;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8d8d8d;
+        outline: none;
+        resize: none;
+        height: 120px;
+        -webkit-transition: none;
+        transition: none;
+        margin-bottom: 14px;
+      }
+
+      .form-content textarea:hover,
+      .form-content textarea:focus {
+        border: 0;
+        background-color: #ebeff8;
+        color: #8d8d8d;
+      }
+
+      .mv-up {
+        margin-top: -9px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .invalid-feedback {
+        color: #ff606e;
+      }
+
+      .valid-feedback {
+        color: #2acc80;
+      }
+    </style>
+  </head>
+
+  <body translate="no">
+    <div class="form-body">
+      <div class="row">
+        <div class="form-holder">
+          <div class="form-content">
+            <div class="form-items">
+              <h3>Calculate Gold Ornaments Today</h3>
+              <p>Fill in the data below.</p>
+              <form class="requires-validation" novalidate>
+                <div class="col-md-12">
+                  <label>Today Gold Rate 24 kt(10g)</label>
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="txtGoldRate"
+                    id="txtGoldRate"
+                    placeholder="Gold Rate 24 kt(10gm)"
+                    required
+                  />
+                  <div class="valid-feedback">GoldRate field is valid!</div>
+                  <div class="invalid-feedback">
+                    GoldRate field cannot be blank!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="txtTotalGoldWeight"
+                    id="txtTotalGoldWeight"
+                    placeholder="Total Gold Weight(gm)"
+                    required
+                  />
+                  <div class="valid-feedback">
+                    Total Gold Weight field is valid!
+                  </div>
+                  <div class="invalid-feedback">
+                    Total Gold Weight field cannot be blank!
+                  </div>
+                </div>
+
+                <!--<div class="col-md-12">
+                                <input class="form-control" type="number" name="txtCarat" id="txtCarat" placeholder="Carat eg. 18,22,24" required />
+                                <div class="valid-feedback">Carat field is valid!</div>
+                                <div class="invalid-feedback">
+                                    Carat field cannot be blank!
+                                </div>
+                            </div>-->
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="txtCarat"
+                    id="txtCarat"
+                    placeholder="Carat eg. 750,916"
+                    required
+                  />
+                  <div class="valid-feedback">Carat field is valid!</div>
+                  <div class="invalid-feedback">
+                    Carat field cannot be blank!
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="txtMackingCharge"
+                    id="txtMackingCharge"
+                    placeholder="Macking Charge eg. 5,10,20"
+                    required
+                  />
+                  <div class="valid-feedback">
+                    Macking Charge field is valid!
+                  </div>
+                  <div class="invalid-feedback">
+                    Macking Charge field cannot be blank!
+                  </div>
+                </div>
+
+                <div class="form-button mt-3">
+                  <button
+                    id="btmCalculate"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Calculate Price
+                  </button>
+                </div>
+
+                <br />
+                <hr />
+                <div class="col-md-12">
+                  <label>Total Price is </label> <label id="lblResult"></label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("btmCalculate").onclick = function () {
+        debugger;
+        var goldRate = parseFloat(document.getElementById("txtGoldRate").value);
+        var totalGoldWeight = parseFloat(
+          document.getElementById("txtTotalGoldWeight").value,
+        );
+        var carat = parseFloat(document.getElementById("txtCarat").value);
+        var mackingCharge = parseFloat(
+          document.getElementById("txtMackingCharge").value,
+        );
+        if (goldRate == "") {
+          alert("Please Enter Gold Rate");
+          return;
+        }
+        if (totalGoldWeight == "") {
+          alert("Please Enter Total Gold Weight");
+          return;
+        }
+        if (carat == "") {
+          alert("Please Enter Carat");
+          return;
+        }
+        if (mackingCharge == "") {
+          alert("Please Enter Macking Charge");
+          return;
+        }
+
+        var selectedCaratPrice = goldRate * (carat / 1000);
+        var pergmGoldRate = selectedCaratPrice / 10;
+        var calculatedPrice = pergmGoldRate * totalGoldWeight;
+        var result = calculatedPrice + calculatedPrice * (mackingCharge / 100);
+
+        document.getElementById("lblResult").innerHTML = result;
+      };
+    </script>
+  </body>
+</html>
